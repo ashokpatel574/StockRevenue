@@ -12,5 +12,4 @@
 4. Enter numbers of the stock.
 5. The app will tell you the percentage and the absolute value of the your profit/loss.
 6. Notice the app theme change when the profit/loss is more than 50%.
-7. 
 
