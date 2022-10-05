@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google fonts link -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- icons link -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./Style.css" />
+    <script defer src="./Script.js"></script>
+
+    <title>Stock Investment Calculator</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">Stock Investment Calculator</nav>
+    </header>
+
+    <main class="main-container">
+      <section class="image-wrapper">
+        <img
+          src="./Assests/Hero.png"
+          class="trading"
+          alt="Confused trader Picture"
+        />
+        <p class="message"></p>
+      </section>
+
+      <section class="stock-data-container">
+        <div class="data-container-heading"><h3>Investment Calculator</h3></div>
+
+        <form class="form form-companyName">
+          <div class="form-data name">
+            <label for="companyName"> Company name </label>
+            <input type="text" id="companyName" class="companyNameInput" />
+          </div>
+          <div class="form-data btn-wrapper">
+            <div></div>
+            <button class="btnSubmit-company">SUBMIT</button>
+          </div>
+        </form>
+        <form class="form form-companyCode">
+          <div class="form-data code">
+            <label for="companyCode">Select company code</label>
+            <select id="companyCode" class="companyCode">
+              <option value="">Please choose an option</option>
+            </select>
+          </div>
+          <div class="form-data date">
+            <label for="purchaseDate"> Stock purchase date </label>
+            <input
+              type="date"
+              id="purchaseDate"
+              min="2005-01-01"
+              class="purchaseDate"
+            />
+          </div>
+          <div class="form-data btn-wrapper">
+            <div></div>
+            <button class="btnSubmit-date">SUBMIT</button>
+          </div>
+        </form>
+
+        <form class="form form-calculation">
+          <div class="form-data initial">
+            <label for="initialPrice">Initial stock price </label>
+            <input
+              type="number"
+              id="initialPrice"
+              min="0"
+              class="initialPrice"
+            />
+          </div>
+          <div class="form-data Qty">
+            <label for="quantity">Quantity of stock</label>
+            <input type="number" id="quantity" class="quantity" min="0" />
+          </div>
+          <div class="form-data sellPrice">
+            <label for="currentPrice">Current Stock Price</label>
+            <input type="number" id="currentPrice" class="currentPrice" />
+          </div>
+          <div class="form-data btn-wrapper">
+            <div></div>
+            <button class="btn-check">CHECK</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer class="footer">
+      <ul class="link-list-item">
+        <li class="link-list">
+          <a
+            class="link"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=ashokpatel574@gmail.com"
+            target="_blank"
+            ><i class="bx bxl-gmail"></i
+          ></a>
+        </li>
+        <li class="link-list">
+          <a
+            class="link"
+            href="https://www.linkedin.com/in/ashokpatel574/"
+            target="_blank"
+            ><i class="bx bxl-linkedin-square"></i
+          ></a>
+        </li>
+        <li class="link-list">
+          <a
+            class="link"
+            href="https://github.com/ashokpatel574"
+            target="_blank"
+            ><i class="bx bxl-github"></i
+          ></a>
+        </li>
+        <li class="link-list">
+          <a
+            class="link"
+            href="https://twitter.com/ashokpatel574"
+            target="_blank"
+            ><i class="bx bxl-twitter"></i
+          ></a>
+        </li>
+      </ul>
+      <p class="footer-text">@Ashok Patel</p>
+    </footer>
+  </body>
+</html>
