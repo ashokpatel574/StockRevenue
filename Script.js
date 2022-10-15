@@ -110,21 +110,33 @@ async function getInitialPrice(e) {
       Object.entries(companyTimeSeries_DailyData)
     );
 
-    console.log(timeSeriesData_Object);
-
     const ipoDate = [...timeSeriesData_Object.keys()].pop();
 
     const user_purchaseDate = timeSeriesData_Object.get(purchaseDateInput);
 
-    if (!user_purchaseDate) {
-      const date = new Date(ipoDate);
+    function setInvalidDateErrorMessage(dateInput, errorMessage) {
       const options = { year: "numeric", month: "long", day: "numeric" };
       throw new Error(
-        `Note. Company IPO launch date is ${date.toLocaleDateString(
+        `Note. ${errorMessage} (${dateInput.toLocaleDateString(
           "en-US",
           options
-        )} `
+        )} )`
       );
+    }
+
+    if (!user_purchaseDate) {
+      const purchaseDate = new Date(purchaseDateInput);
+      const stockIPODate = new Date(ipoDate);
+      if (purchaseDate.getTime() > stockIPODate.getTime()) {
+        // If selected stock date fallens on non-working day.
+        setInvalidDateErrorMessage(
+          purchaseDate,
+          `Selected date fallens on non-working day`
+        );
+      } else {
+        // If selected stock date is before stock IPO date.
+        setInvalidDateErrorMessage(stockIPODate, `Company IPO launch date is`);
+      }
     }
 
     if (user_purchaseDate) {
@@ -178,14 +190,7 @@ function getInvestmentStatus(e) {
     let price_purchase = purchasePriceInput || initialPrice_byAPI;
     let price_current = currentPriceInput || currentPrice_byAPI;
 
-    console.log(
-      purchasePriceInput,
-      initialPrice_byAPI,
-      currentPriceInput,
-      currentPrice_byAPI,
-      price_current,
-      price_purchase
-    );
+    tradingImg.scrollIntoView({ behavior: "smooth" });
 
     // If  company name is not entered then throw alert message
     if (!qtyInput || qtyInput <= 0) {
