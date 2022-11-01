@@ -182,8 +182,8 @@
   }
 
   function getInvestmentStatus(e) {
-    resultDisplay();
     e.preventDefault();
+    resultDisplay();
     try {
       const initialPrice = document.querySelector(".initialPrice");
       const quantity = document.querySelector(".quantity");
@@ -229,7 +229,6 @@
 
       if (qtyInput) {
         if (price_current > 0 || price_purchase > 0) {
-          resultDisplay();
           // Stock Loss Calculation
           if (price_purchase > price_current) {
             differenceValue = Math.abs(price_purchase - price_current);
