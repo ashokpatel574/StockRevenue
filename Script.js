@@ -185,6 +185,7 @@
     e.preventDefault();
     try {
       resultDisplay();
+
       const initialPrice = document.querySelector(".initialPrice");
       const quantity = document.querySelector(".quantity");
       const currentPrice = document.querySelector(".currentPrice");

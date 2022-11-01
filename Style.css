@@ -313,8 +313,8 @@ i:hover {
   /* Main container Style Section */
 
   .main-container {
-    flex-direction: column;
     row-gap: 4rem;
+    flex-direction: column;
   }
 
   .stock-data-container {
