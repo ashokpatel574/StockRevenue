@@ -67,7 +67,7 @@ button {
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+  appearance: none;
   margin: 0;
 }
 
@@ -169,6 +169,10 @@ input[type="number"] {
   gap: 2rem;
 }
 
+.form-companyName {
+  width: 100%;
+}
+
 label {
   font-size: 2rem;
   letter-spacing: 1px;
@@ -223,7 +227,7 @@ select option {
 .btn-check,
 .btnSubmit-date,
 .btnSubmit-company {
-  width: 45%;
+  width: 44%;
   padding: 1rem 1.6rem;
   font-size: 2rem;
   letter-spacing: 1.5px;
@@ -312,6 +316,7 @@ i:hover {
     flex-direction: column;
     row-gap: 4rem;
   }
+
   .stock-data-container {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -337,9 +342,12 @@ i:hover {
     margin: 0;
   }
 
+  .form {
+    margin-bottom: 1.5rem;
+  }
+
   .form-data {
     gap: 1.5rem;
-    justify-content: flex-start;
   }
 
   label {
