@@ -182,6 +182,7 @@
   }
 
   function getInvestmentStatus(e) {
+    resultDisplay();
     e.preventDefault();
     try {
       const initialPrice = document.querySelector(".initialPrice");
