@@ -184,6 +184,7 @@
   function getInvestmentStatus(e) {
     e.preventDefault();
     try {
+      resultDisplay();
       const initialPrice = document.querySelector(".initialPrice");
       const quantity = document.querySelector(".quantity");
       const currentPrice = document.querySelector(".currentPrice");
@@ -212,7 +213,6 @@
       let percentAge;
       let price_purchase = purchasePriceInput || initialPrice_byAPI;
       let price_current = currentPriceInput || currentPrice_byAPI;
-      resultDisplay();
 
       // If  company name is not entered then throw alert message
       if (!qtyInput || qtyInput <= 0) {
