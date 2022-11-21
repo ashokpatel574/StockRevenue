@@ -105,7 +105,7 @@
       }
 
       const response = await fetch(
-        `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${companyCodeInput}&&outputsize=full&outputsize=full&apikey=19XFBSO60KMUN827`
+        `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${companyCodeInput}&apikey=19XFBSO60KMUN827`
       );
 
       if (!response.ok) {
@@ -113,7 +113,7 @@
       }
 
       const data = await response.json();
-      const companyTimeSeries_DailyData = data[`Time Series (Daily)`];
+      const companyTimeSeries_DailyData = Object.values(data)[1];
 
       const timeSeriesData_Object = new Map(
         Object.entries(companyTimeSeries_DailyData)
@@ -157,19 +157,33 @@
       }
 
       if (user_purchaseDate) {
-        const initialPrice_onPurchaseDate = user_purchaseDate[`4. close`];
+        const initialPrice_onPurchaseDate = Object.values(user_purchaseDate)[3];
         initialPrice.placeholder = parseFloat(initialPrice_onPurchaseDate);
         form_calculation.style.display = "flex";
 
-        const previousDate = new Date(Date.now() - 864e5)
+        let previousDate = new Date(Date.now() - 864e5)
           .toISOString()
           .substring(0, 10);
-        const currentPrice_data = timeSeriesData_Object.get(previousDate);
 
-        if (currentPrice_data) {
-          const currentPrice_byAPI = currentPrice_data[`4. close`];
-          currentPrice.placeholder = parseFloat(currentPrice_byAPI);
+        let currentPrice_data = timeSeriesData_Object.get(previousDate);
+
+        function getCurrentPrice_data(currentPrice_data) {
+          if (currentPrice_data) {
+            const currentPrice_byAPI = Object.values(currentPrice_data)[3];
+            currentPrice.placeholder = parseFloat(currentPrice_byAPI);
+          }
+
+          if (typeof currentPrice_data === "undefined") {
+            previousDate = new Date(new Date(previousDate).getTime() - 864e5)
+              .toISOString()
+              .substring(0, 10);
+
+            currentPrice_data = timeSeriesData_Object.get(previousDate);
+            getCurrentPrice_data(currentPrice_data);
+          }
         }
+
+        getCurrentPrice_data(currentPrice_data);
       }
     } catch (error) {
       messageBox.innerText = `${error.status || ""} ${
