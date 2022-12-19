@@ -105,7 +105,7 @@
       }
 
       const response = await fetch(
-        `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${companyCodeInput}&apikey=19XFBSO60KMUN827`
+        `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${companyCodeInput}&outputsize=full&apikey=19XFBSO60KMUN827`
       );
 
       if (!response.ok) {
@@ -113,6 +113,7 @@
       }
 
       const data = await response.json();
+
       const companyTimeSeries_DailyData = Object.values(data)[1];
 
       const timeSeriesData_Object = new Map(
