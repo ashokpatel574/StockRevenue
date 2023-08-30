@@ -63,6 +63,8 @@ async function getCompanyRegionData(e) {
     }
     const data = await response.json();
 
+    console.log(data);
+
     const companyListDatabase = data?.bestMatches;
 
     if (companyListDatabase.length > 0) {
@@ -90,9 +92,10 @@ async function getCompanyRegionData(e) {
       throw new Error("Please enter valid company name below in input box ");
     }
   } catch (error) {
-    messageBox.innerText = `${error.status || ""} ${
-      error.message || " "
-    }. Try again!`;
+    console.log(error.message);
+    messageBox.innerText = `${
+      error.status || ""
+    } Something went wrong. Try again!`;
     messageBox.style.color = "#ff1a1a";
     resultTradingImgElem.src = `./Assests/error.png`;
     resultDisplay();
