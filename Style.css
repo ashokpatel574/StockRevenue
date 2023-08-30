@@ -31,8 +31,11 @@ html {
 body {
   font-family: "Roboto", sans-serif;
   overflow-x: hidden;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   color: var(--text-color);
+  display: flex;
+  flex-direction: column;
 }
 
 button:focus,
@@ -47,6 +50,7 @@ button,
 select,
 option {
   display: inline-block;
+  width: 100%;
 }
 
 ul {
@@ -85,32 +89,32 @@ input[type="number"] {
 }
 
 .nav {
-  font-size: 3.2rem;
-  font-weight: 700;
+  font-size: 2.8rem;
+  font-weight: 600;
   letter-spacing: 1px;
   word-wrap: break-word;
   word-spacing: 5px;
-  line-height: 4rem;
-  padding: 3rem 2rem;
-  margin: 0 1rem;
+  padding: 3.5rem 3rem;
 }
 
 /* Main container Style Section */
 
 .main-container {
-  max-width: 1350px;
+  max-width: 145rem;
   margin: 0 auto;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem 2rem;
+  margin-bottom: 1rem;
 }
 
 /* Image container Style Section */
 
 .image-wrapper {
-  padding: 2rem 0 2rem 2rem;
-  max-width: 55rem;
+  max-width: 48rem;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,16 +123,18 @@ input[type="number"] {
 
 .image-wrapper img {
   width: 100%;
+  object-fit: cover;
+  vertical-align: middle;
 }
 
 .message {
-  font-size: 2.2rem;
+  font-size: 2rem;
   word-wrap: break-word;
   letter-spacing: 1.5px;
-  line-height: 3rem;
-  font-weight: 500;
+  line-height: 2rem;
+  font-weight: 400;
   color: var(--loss-color-light);
-  margin-bottom: 2rem;
+  text-align: center;
 }
 
 /* Form container heading Style Section */
@@ -136,21 +142,17 @@ input[type="number"] {
 .stock-data-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 75rem;
-  padding: 2rem 2rem 2rem 0;
-  row-gap: 2rem;
-  margin: 0 2rem;
-}
-
-.data-container-heading {
-  margin-right: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 54rem;
+  width: 100%;
+  gap: 2rem;
+  padding: 0 1.5rem;
 }
 
 .data-container-heading h3 {
-  font-size: 2.8rem;
-  padding: 2rem 2rem 1rem 0;
+  font-size: 2rem;
+  padding-bottom: 1.5rem;
   text-decoration: underline;
 }
 
@@ -159,65 +161,57 @@ input[type="number"] {
 .form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 2rem;
+  width: 100%;
 }
 
 .form-data {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
+  width: 100%;
 }
 
 .form-companyName {
   width: 100%;
 }
 
-label {
-  font-size: 2rem;
-  letter-spacing: 1px;
-  margin-bottom: 1.5rem;
+.form-data label {
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.25rem;
 }
 
-input[type="number"],
-input[type="text"],
-input[type="date"],
-select {
-  max-width: 45%;
-}
-
-input[type="date"],
-select {
-  width: 45%;
-}
-
-input {
-  font-size: 2rem;
+.form-data input {
   border: none;
   background-color: var(--bgcolor-light);
-  padding: 1rem 0.8rem;
-  min-width: 30%;
-  font-weight: 500;
   border-radius: 5px;
 }
 
-select {
-  font-size: 1.6rem;
+.form-data select {
   border: none;
   background-color: var(--bgcolor-light);
-  padding: 1.2rem 0.4rem;
-  font-weight: 400;
   border-radius: 5px;
   overflow: hidden;
 }
 
-select option {
-  font-size: 1.6rem;
-  max-width: 50%;
+.form-data select option {
   background-color: var(--secondary-color);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.form-data input,
+.form-data select,
+.form-data select option {
+  min-width: 28rem;
+  width: 100%;
+  font-size: 1.6rem;
+  font-family: inherit;
+  padding: 0.7rem 1.4rem;
 }
 
 .btn-wrapper {
@@ -227,34 +221,38 @@ select option {
 .btn-check,
 .btnSubmit-date,
 .btnSubmit-company {
-  width: 44%;
-  padding: 1rem 1.6rem;
-  font-size: 2rem;
-  letter-spacing: 1.5px;
-  font-weight: 600;
+  max-width: 12rem;
+  width: 100%;
+  padding: 0.7rem 1.4rem;
+  font-size: 1.5rem;
+  font-family: inherit;
+  letter-spacing: 1.25px;
   background-color: var(--primary-color);
-  transition: all 0.5s;
+  transition: all 0.4s;
 }
 
 .btn-check:hover,
 .btnSubmit-date:hover,
 .btnSubmit-company:hover {
   background-color: var(--highlight-color);
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .form-companyCode {
   display: none;
+  width: 100%;
 }
 
 .form-calculation {
   display: none;
+  width: 100%;
 }
 
 /* Footer Style Section */
 
 footer {
-  padding: 3rem 2rem;
+  margin-top: auto;
+  padding: 2.5rem 2rem;
   text-align: center;
   background-color: var(--primary-color);
 }
@@ -263,144 +261,235 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
+  gap: 3.5rem;
 }
 
 i {
-  font-size: 3rem;
+  font-size: 2.4rem;
   color: var(--secondary-color);
   margin-bottom: 2rem;
-  transition: all 0.5s;
+  transition: all 0.4s;
 }
 
 i:hover {
-  transform: scale(1.25);
+  transform: scale(1.1);
 }
 
 .footer-text {
-  font-size: 1.8rem;
-  margin-top: 1rem;
-  letter-spacing: 1.5px;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
   color: var(--secondary-color);
 }
 
 /* Media Query Style Section */
 
-/* 1088px / 16px --- 68rem */
+@media (max-width: 1024px) {
+  .nav {
+    font-size: 2.4rem;
+    padding: 3rem 2.5rem;
+  }
 
-@media (max-width: 68em) {
   /* Image container Style Section */
 
   .image-wrapper {
-    padding: 2rem 0 2rem 2rem;
-    max-width: 48rem;
+    max-width: 35rem;
   }
-}
 
-/* 960px / 16px --- 60rem */
-
-@media (max-width: 60em) {
-  /* Image container Style Section */
-
-  .image-wrapper {
-    max-width: 36rem;
+  .message {
+    font-size: 1.7rem;
   }
-}
 
-/* 848px / 16px --- 53rem */
-
-@media (max-width: 53em) {
-  /* Main container Style Section */
-
-  .main-container {
-    row-gap: 4rem;
-    flex-direction: column;
-  }
+  /* Form container heading Style Section */
 
   .stock-data-container {
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin: 0;
-  }
-
-  /* Image container Style Section */
-
-  .image-wrapper {
-    padding: 2rem;
     max-width: 50rem;
-  }
-}
-
-/* 432px / 16px --- 27rem */
-
-@media (max-width: 27em) {
-  /* Main container Style Section */
-
-  .stock-data-container {
-    padding-left: 1.5rem;
-    padding-right: 1rem;
-    margin: 0;
+    gap: 1rem;
+    padding: 0 1rem;
   }
 
-  .form {
+  .data-container-heading h3 {
+    font-size: 1.8rem;
+    padding-bottom: 1.5rem;
+  }
+
+  /* form Style Section */
+
+  .form-data label {
+    font-size: 1.6rem;
+    letter-spacing: 0.25px;
+    margin-bottom: 1.25rem;
+  }
+
+  .form-data input,
+  .form-data select,
+  .form-data select option {
+    min-width: 22rem;
+    font-size: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+  }
+
+  .btn-check,
+  .btnSubmit-date,
+  .btnSubmit-company {
+    max-width: 10rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.5rem;
+  }
+
+  /* Footer Style Section */
+
+  footer {
+    padding: 2.5rem 2rem;
+  }
+
+  .link-list-item {
+    gap: 3rem;
+  }
+
+  i {
+    font-size: 2.2rem;
     margin-bottom: 1.5rem;
   }
 
-  .form-data {
-    gap: 1.5rem;
+  .footer-text {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    font-size: 2.2rem;
   }
 
-  label {
-    word-wrap: break-word;
-    width: 40%;
+  /* Main container Style Section */
+
+  .main-container {
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    margin-bottom: 1rem;
   }
 
-  input[type="number"],
-  input[type="text"],
-  input[type="date"],
-  select {
-    max-width: 52%;
+  /* Image container Style Section */
+
+  .image-wrapper {
+    max-width: 32rem;
   }
 
-  input[type="date"],
-  select {
-    width: 52%;
+  .message {
+    font-size: 1.65rem;
   }
 
-  input {
-    font-size: 1.6rem;
-    padding: 1rem 0.8rem;
-    min-width: 30%;
+  /* Form container heading Style Section */
+
+  .stock-data-container {
+    max-width: 38rem;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .data-container-heading h3 {
+    font-size: 1.7rem;
+    padding-bottom: 1.5rem;
+  }
+
+  /* form Style Section */
+
+  .form-data label {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-data input,
+  .form-data select,
+  .form-data select option {
+    min-width: 15rem;
+    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .btn-check,
+  .btnSubmit-date,
+  .btnSubmit-company {
+    max-width: 8rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.4rem;
     font-weight: 400;
+    letter-spacing: 0.5px;
   }
 
-  select {
-    padding: 1.2rem;
+  /* Footer Style Section */
+
+  footer {
+    padding: 2.5rem 2rem;
   }
 
-  select option {
-    max-width: 50%;
+  i {
+    font-size: 2rem;
   }
 
-  .btn-wrapper {
-    padding-right: 1rem;
+  .footer-text {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .nav {
+    font-size: 2rem;
   }
 
-  .btn-check {
-    width: 52%;
-    padding: 0.8rem 1.2rem;
-    font-size: 1.8rem;
-    letter-spacing: 1px;
-    font-weight: 400;
+  /* Main container Style Section */
+  .main-container {
+    justify-content: center;
+    flex-direction: column;
+    padding: 0rem 1.5rem;
+    margin-bottom: 4rem;
+    gap: 4rem;
+  }
+
+  /* Image container Style Section */
+
+  .image-wrapper {
+    max-width: 35rem;
+  }
+
+  /* Form container heading Style Section */
+
+  .stock-data-container {
+    padding: 0;
+  }
+
+  /* form Style Section */
+
+  .form-data label {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-data input,
+  .form-data select,
+  .form-data select option {
+    min-width: 15rem;
+    font-size: 1.3rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .btn-check,
+  .btnSubmit-date,
+  .btnSubmit-company {
+    max-width: 7rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 1.3rem;
   }
 
   /* Footer Style Section */
 
   i {
-    font-size: 2.6rem;
+    font-size: 1.8rem;
   }
 
   .footer-text {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 }
